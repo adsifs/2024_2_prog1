@@ -1,11 +1,16 @@
 package br.ifs.cads.barbearia.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Barbearia extends AuditModel {
     private String nome;
     private String endereco;
+    @OneToMany(mappedBy="barbeariaFavorita")
+    private List<Cliente> clientes;
 
     public String getNome() {
         return nome;
