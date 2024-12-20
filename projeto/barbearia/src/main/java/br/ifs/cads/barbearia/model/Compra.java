@@ -1,6 +1,9 @@
 package br.ifs.cads.barbearia.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import org.hibernate.sql.ast.tree.expression.ColumnReference;
 
 import java.util.Date;
 
@@ -10,11 +13,13 @@ public class Compra extends AuditModel{
     private int agendamentoId;
     private Date dataCriacao;
     private int funcionarioId;
+    @ManyToOne
+    @JoinColumn(referencedColumnName="formaPagamento")
     private FormaPagamento formaPagamento;
-    private Status status;
+    @ManyToOne
+    @JoinColumn(referencedColumnName="status")
+    private StatusCompra statusCompra;
 
-    private enum FormaPagamento{Dinheiro, Pix, Debito, Credito, Voucher;}
-    private enum Status{Cancelada, Finalizada, Aberta;}
     public int getClienteId() {return clienteId;}
     public void setClienteId(int clienteId) {this.clienteId = clienteId;}
     public int getAgendamentoId() {return agendamentoId;}
@@ -25,6 +30,6 @@ public class Compra extends AuditModel{
     public void setFuncionarioId(int funcionarioId) {this.funcionarioId = funcionarioId;}
     public FormaPagamento getFormaPagamento() {return formaPagamento;}
     public void setFormaPagamento(FormaPagamento formaPagamento) {this.formaPagamento = formaPagamento;}
-    public Status getStatus() {return status;}
-    public void setStatus(Status status) {this.status = status;}
+    public StatusCompra getStatus() {return statusCompra;}
+    public void setStatus(StatusCompra statusCompra) {this.statusCompra = statusCompra;}
 }

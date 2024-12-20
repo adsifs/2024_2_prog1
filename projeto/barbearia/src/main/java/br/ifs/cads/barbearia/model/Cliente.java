@@ -1,13 +1,18 @@
 package br.ifs.cads.barbearia.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Cliente extends AuditModel{
+    @Column(nullable=false)
     private String nome;
+    @Column(nullable = false)
     private String email;
+    @Column(nullable = false)
     private String telefone;
+    @Column(nullable = false)
     @ManyToOne
     private Barbearia barbeariaFavorita;
 

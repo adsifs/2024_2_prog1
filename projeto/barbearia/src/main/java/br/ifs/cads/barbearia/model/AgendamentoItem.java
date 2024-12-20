@@ -3,7 +3,7 @@ package br.ifs.cads.barbearia.model;
 import jakarta.persistence.Entity;
 
 @Entity
-public class AgendamentoItem extends AuditModel {
+public class AgendamentoItem extends AuditModel{
     private int agendamentoId;
     private int procedimentoProfissionalId;
 
