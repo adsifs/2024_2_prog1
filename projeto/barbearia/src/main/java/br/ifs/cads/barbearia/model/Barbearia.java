@@ -9,6 +9,8 @@ import java.util.List;
 public class Barbearia extends AuditModel {
     private String nome;
     private String endereco;
+    @OneToMany(mappedBy="barbeariaFavorita")
+    private List<Cliente> clientes;
 
     @OneToMany(mappedBy="barbeariaId")
     private List<Funcionario> funcionarios;
