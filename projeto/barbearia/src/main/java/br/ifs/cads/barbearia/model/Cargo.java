@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 public class Cargo extends AuditModel{
-    @Column(nullable = false)
+    @NotNull
     private String nome;
     @OneToMany(mappedBy = "cargoId")
     private List<Funcionario> funcionarios;
