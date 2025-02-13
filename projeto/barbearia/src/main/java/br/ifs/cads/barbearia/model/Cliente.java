@@ -2,6 +2,7 @@ package br.ifs.cads.barbearia.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -12,8 +13,8 @@ public class Cliente extends AuditModel{
     private String email;
     @Column(nullable = false)
     private String telefone;
-    @Column(nullable = false)
     @ManyToOne
+    @JoinColumn(name = "barbeariaId")
     private Barbearia barbeariaFavorita;
 
     public String getNome(){return nome;}
