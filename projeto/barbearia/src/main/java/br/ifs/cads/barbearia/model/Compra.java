@@ -8,10 +8,9 @@ import java.util.Date;
 @Entity
 public class Compra extends AuditModel{
     private Date dataCriacao;
-    @Enumerated(EnumType.STRING)
     @JoinColumn(referencedColumnName="formaPagamento")
     private FormaPagamento formaPagamento;
-    @Enumerated(EnumType.STRING)
+
     private StatusCompra statusCompra;
     @ManyToOne
     @JoinColumn(name="clienteId")
