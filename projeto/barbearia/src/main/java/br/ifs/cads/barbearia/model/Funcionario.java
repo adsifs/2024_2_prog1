@@ -15,15 +15,15 @@ public class Funcionario extends AuditModel {
 
     @ManyToOne
     @JoinColumn(name = "barbeariaId", referencedColumnName = "id")
-    private Long barbeariaId;
+    private Barbearia barbearia;
 
     @ManyToOne
     @JoinColumn(name = "cargoId", referencedColumnName = "id")
-    private Long cargoId;
+    private Cargo cargo;
 
     @ManyToOne
     @JoinColumn(name = "statusFuncionarioId", referencedColumnName = "id")
-    private Long statusFuncionarioId;
+    private StatusFuncionario statusFuncionario;
 
 
     public String getNome() {

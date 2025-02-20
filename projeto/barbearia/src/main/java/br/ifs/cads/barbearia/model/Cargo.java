@@ -3,6 +3,7 @@ package br.ifs.cads.barbearia.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class Cargo extends AuditModel{
     @NotNull
     private String nome;
-    @OneToMany(mappedBy = "cargoId")
+    @OneToMany(mappedBy = "cargo")
     private List<Funcionario> funcionarios;
     public String getNome() {return nome;}
     public void setNome(String nome) {this.nome = nome;}

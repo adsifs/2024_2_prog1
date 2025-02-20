@@ -25,7 +25,7 @@ public class Agendamento {
     @JoinColumn(name = "clienteId", nullable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "agendamento", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "agendamentoId", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AgendamentoItem> itens;
 
     // Construtor padrão (obrigatório para JPA)

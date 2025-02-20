@@ -8,9 +8,9 @@ import java.util.List;
 public interface FuncionarioRepository extends JpaRepository<Funcionario, Long> {
     List<Funcionario> findByNomeContaining(String nome);
 
-    List<Funcionario> findByCargoId(Long cargoId);
+    List<Funcionario> findByCargoId(Funcionario cargo);
 
-    List<Funcionario> findByStatusId(Long statusFuncionarioId);
+    List<Funcionario> findByStatusFuncionario(Funcionario statusFuncionario);
 
-    List<Funcionario> findByBarbeariaId(Long barbeariaId);
+    List<Funcionario> findByBarbeariaId(Funcionario barbearia);
 }
