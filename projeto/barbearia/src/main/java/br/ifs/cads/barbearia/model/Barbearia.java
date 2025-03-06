@@ -12,7 +12,7 @@ public class Barbearia extends AuditModel {
     @OneToMany(mappedBy="barbeariaFavorita")
     private List<Cliente> clientes;
 
-    @OneToMany(mappedBy="barbeariaId")
+    @OneToMany(mappedBy="barbearia")
     private List<Funcionario> funcionarios;
 
     public String getNome() {

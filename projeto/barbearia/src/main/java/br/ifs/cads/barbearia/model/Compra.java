@@ -1,35 +1,37 @@
 package br.ifs.cads.barbearia.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.hibernate.sql.ast.tree.expression.ColumnReference;
 
 import java.util.Date;
 
 @Entity
 public class Compra extends AuditModel{
-    private int clienteId;
-    private int agendamentoId;
     private Date dataCriacao;
-    private int funcionarioId;
-    @ManyToOne
     @JoinColumn(referencedColumnName="formaPagamento")
     private FormaPagamento formaPagamento;
-    @ManyToOne
-    @JoinColumn(referencedColumnName="status")
-    private StatusCompra statusCompra;
 
-    public int getClienteId() {return clienteId;}
-    public void setClienteId(int clienteId) {this.clienteId = clienteId;}
-    public int getAgendamentoId() {return agendamentoId;}
-    public void setAgendamentoId(int agendamentoId) {this.agendamentoId = agendamentoId;}
+    private StatusCompra statusCompra;
+    @ManyToOne
+    @JoinColumn(name="clienteId")
+    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name="agendamentoId")
+    private Agendamento agendamento;
+    @ManyToOne
+    @JoinColumn(name="funcionarioId")
+    private Funcionario funcionario;
+
     public Date getDataCriacao() {return dataCriacao;}
     public void setDataCriacao(Date dataCriacao) {this.dataCriacao = dataCriacao;}
-    public int getFuncionarioId() {return funcionarioId;}
-    public void setFuncionarioId(int funcionarioId) {this.funcionarioId = funcionarioId;}
+    public StatusCompra getStatusCompra() {return statusCompra;}
+    public void setStatusCompra(StatusCompra statusCompra) {this.statusCompra = statusCompra;}
     public FormaPagamento getFormaPagamento() {return formaPagamento;}
     public void setFormaPagamento(FormaPagamento formaPagamento) {this.formaPagamento = formaPagamento;}
-    public StatusCompra getStatus() {return statusCompra;}
-    public void setStatus(StatusCompra statusCompra) {this.statusCompra = statusCompra;}
+    public Cliente getCliente() {return cliente;}
+    public void setCliente(Cliente cliente) {this.cliente = cliente;}
+    public Agendamento getAgendamento() {return agendamento;}
+    public void setAgendamento(Agendamento agendamento) {this.agendamento = agendamento;}
+    public Funcionario getFuncionario() {return funcionario;}
+    public void setFuncionario(Funcionario funcionario) {this.funcionario = funcionario;}
 }
